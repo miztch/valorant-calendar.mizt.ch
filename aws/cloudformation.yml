@@ -1,0 +1,100 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Hugo hosting
+
+Parameters:
+  CertificateArn:
+    Description: ACM Certificate ARN
+    Type: String
+  CustomDomain:
+    Description: domain name. corresponds to origin bucket name.
+    Type: String
+  Route53HostedZoneId:
+    Description: Route53 hosted zone id for CustomDomain
+    Type: String
+
+Resources:
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        CNAMEs:
+          - !Ref CustomDomain
+        Origins:
+          - DomainName: !Sub ${OriginBucket}.s3.amazonaws.com
+            Id: S3Origin
+            OriginAccessControlId: !GetAtt OriginAccessControl.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        DefaultCacheBehavior:
+            AllowedMethods:
+              - GET
+              - HEAD
+            CachedMethods:
+              - GET
+              - HEAD
+            CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 #CachingOptimized https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html#managed-cache-policies-list
+            TargetOriginId: S3Origin # =Origins.Id
+            ViewerProtocolPolicy: redirect-to-https
+        DefaultRootObject: index.html
+        Enabled: true
+        IPV6Enabled: true
+        PriceClass: PriceClass_100
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertificateArn
+          MinimumProtocolVersion: TLSv1
+          SslSupportMethod: sni-only
+
+  OriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub ${CustomDomain}-S3OriginControlConfig
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  OriginBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref CustomDomain
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+    DeletionPolicy: Retain
+  
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties: 
+      Bucket: !Ref OriginBucket
+      PolicyDocument: 
+        Version: 2008-10-17
+        Statement: 
+          - Sid: AllowCloudFrontServicePrincipal
+            Effect: Allow
+            Principal: 
+              Service: 
+              - cloudfront.amazonaws.com
+            Action: 
+              - s3:GetObject
+            Resource: 
+              - !Sub ${OriginBucket.Arn}/*
+            Condition: 
+              StringEquals:
+                AWS:SourceArn: 
+                - !Sub arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}
+
+  Route53RecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Name: !Ref CustomDomain
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2 #fixed
+      HostedZoneId: !Ref Route53HostedZoneId
