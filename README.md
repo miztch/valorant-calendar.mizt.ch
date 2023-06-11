@@ -8,5 +8,5 @@
 ## See Also
 
 - [valorant-match-schedule](https://github.com/miztch/valorant-match-schedule): application provisioning calendar data
-- [sasha](https://github.com/miztch/valorant-match-schedule): scraper for vlr.gg upcoming matches
-- [dima](https://github.com/miztch/valorant-match-schedule): API for vlr.gg matches harvested with sasha
+- [sasha](https://github.com/miztch/sasha): scraper for vlr.gg upcoming matches
+- [dima](https://github.com/miztch/dima): API for vlr.gg matches harvested with sasha
