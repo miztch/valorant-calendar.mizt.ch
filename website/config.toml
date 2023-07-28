@@ -2,7 +2,7 @@ languageCode = "en"
 defaultContentLanguage = "en"
 
 title = "Valorant Match Schedule 📅"
-copyright = "© 2023 miztch"
+copyright = "© 2023 miztch | <a class='hover:underline hover:decoration-primary-400 hover:text-primary-500' href='https://github.com/miztch/valorant-match-schedule'>GitHub</a>"
 
 enableEmoji = true
 disableKinds = ["taxonomy", "term"]
@@ -33,6 +33,9 @@ googleAnalytics = "G-T160DKFZWX"
   [module.hugoVersion]
     extended = false
     min = "0.86.1"
+
+[markup.goldmark.renderer]
+unsafe = true
 
 [deployment]
 
