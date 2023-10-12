@@ -39,10 +39,6 @@ Resources:
         DefaultRootObject: index.html
         Enabled: true
         IPV6Enabled: true
-        Logging:
-          Bucket: !GetAtt LoggingBucket.DomainName
-          IncludeCookies: false
-          Prefix: cloudfront/
         PriceClass: PriceClass_100
         ViewerCertificate:
           AcmCertificateArn: !Ref CertificateArn
@@ -92,15 +88,6 @@ Resources:
               StringEquals:
                 AWS:SourceArn: 
                 - !Sub arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}
-
-  LoggingBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: !Sub ${CustomDomain}-logs
-      AccessControl: LogDeliveryWrite
-      OwnershipControls:
-        Rules:
-          - ObjectOwnership: BucketOwnerPreferred
 
   Route53RecordSet:
     Type: AWS::Route53::RecordSet
