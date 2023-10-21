@@ -42,7 +42,7 @@ Resources:
         PriceClass: PriceClass_100
         ViewerCertificate:
           AcmCertificateArn: !Ref CertificateArn
-          MinimumProtocolVersion: TLSv1
+          MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
   OriginAccessControl:
