@@ -29,9 +29,9 @@ jobs:
           wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_DOWNLOAD}
           tar xvzf ${HUGO_DOWNLOAD} hugo
       - name: Hugo Build
-        run: hugo -v
+        run: $HOME/hugo -v
       - name: Deploy to S3
-        run: hugo -v deploy --maxDeletes 1000
+        run: $HOME/hugo -v deploy --maxDeletes 1000
       - name: flush CloudFront Edge Cache
         run: |
           aws cloudfront list-distributions \
