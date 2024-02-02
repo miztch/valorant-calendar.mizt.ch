@@ -1,7 +1,5 @@
 # valorant-calendar.mizt.ch
 
-![screenshot](assets/img/website-screenshot.png)
-
 - [Landing Page](https://valorant-calendar.mizt.ch) of public Google calendars for Valorant competitive match schedule.
 - Built using [Hugo](https://gohugo.io/) and [Lynx](https://github.com/jpanther/lynx)
 

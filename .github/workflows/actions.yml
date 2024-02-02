@@ -28,15 +28,10 @@ jobs:
           HUGO_DOWNLOAD=hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
           wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_DOWNLOAD}
           tar xvzf ${HUGO_DOWNLOAD} hugo
-          mv hugo $HOME/hugo
       - name: Hugo Build
-        run: |
-          cd website/
-          $HOME/hugo -v
+        run: hugo -v
       - name: Deploy to S3
-        run: |
-          cd website/
-          $HOME/hugo -v deploy --maxDeletes 1000
+        run: hugo -v deploy --maxDeletes 1000
       - name: flush CloudFront Edge Cache
         run: |
           aws cloudfront list-distributions \
