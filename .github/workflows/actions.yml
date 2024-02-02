@@ -28,6 +28,7 @@ jobs:
           HUGO_DOWNLOAD=hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
           wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_DOWNLOAD}
           tar xvzf ${HUGO_DOWNLOAD} hugo
+          mv hugo $HOME/hugo
       - name: Hugo Build
         run: $HOME/hugo -v
       - name: Deploy to S3
