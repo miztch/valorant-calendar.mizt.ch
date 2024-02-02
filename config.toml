@@ -3,7 +3,7 @@ languageCode = "en"
 defaultContentLanguage = "en"
 
 title = "Valorant Match Schedule 📅"
-copyright = "© 2023 miztch | <a class='hover:underline hover:decoration-primary-400 hover:text-primary-500' href='https://github.com/miztch/valorant-match-schedule'>GitHub</a>"
+copyright = "© 2024 miztch | <a class='hover:underline hover:decoration-primary-400 hover:text-primary-500' href='https://github.com/miztch/valorant-match-schedule'>GitHub</a>"
 
 enableEmoji = true
 disableKinds = ["taxonomy", "term"]
