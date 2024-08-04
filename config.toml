@@ -2,8 +2,8 @@ baseURL = "https://valorant-calendar.mizt.ch/"
 languageCode = "en"
 defaultContentLanguage = "en"
 
-title = "Valorant Match Schedule 📅"
-copyright = "© 2024 miztch | <a class='hover:underline hover:decoration-primary-400 hover:text-primary-500' href='https://github.com/miztch/valorant-match-schedule'>GitHub</a>"
+title = "Valorant Match Schedule"
+copyright = "© 2024 <a class='hover:underline hover:decoration-primary-400 hover:text-primary-500' href='https://x.com/m1ztch'>miztch</a> | <a class='hover:underline hover:decoration-primary-400 hover:text-primary-500' href='https://github.com/miztch/valorant-match-schedule'>GitHub</a>"
 
 enableEmoji = true
 disableKinds = ["taxonomy", "term"]
@@ -14,12 +14,12 @@ googleAnalytics = "G-T160DKFZWX"
   headline = "Check Valorant competitive match schedule on Google Calendar!"
 
   links = [
-    { international = { href = "https://calendar.google.com/calendar/u/0?cid=ZjJiMjY1MTkwZmNkMDY5NjY5M2FiZjgwODE1OGRkZDQ1MTQwNjY1ZGRkMGM1YjM3YWFhYTA0ZGJjZDYxZWFhOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "International" }},
+    { americas = { href = "https://calendar.google.com/calendar/u/0?cid=YmRkZTBmNWZhYTQ2ZTQxZGRmYWJkZTJmYjhlZDZhZTcxOTdiNjQ2MTQyYjhlZDAzOTdmMGE0ZjBiYmQxMDlmNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "Americas" }},   
     { emea = { href = "https://calendar.google.com/calendar/u/0?cid=OWNjOGI0YmIwMjFiMDE5NGIyNDEzOWRiMjU1NjFmYTc0ZGVhYTc0MzU0YWY1NDkzMDFiNDRhZWNjOTJiMzJiOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "EMEA" }},
-    { na = { href = "https://calendar.google.com/calendar/u/0?cid=NDg2OTg5YjJjYTEwZTk5OGVlODU4YTcyMDRiMTNjZDkzNWQ0MTFmMjlkYzA4MzA1ZGJiZDFjNDIzN2YyYTIxZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "North America" }},
-    { br-latam = { href = "https://calendar.google.com/calendar/u/0?cid=NTNjYTg1NDZhNGQzM2IzMTkzNmVkMjA0NjE2NmY2OTA2ODc1YzhiMzM3N2JhOThiOWFkMWJhZjNhMDQwZjA3NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "BR / LATAM" }},
-    { apac = { href = "https://calendar.google.com/calendar/u/0?cid=YTZiOWM3ZGI5YzdmM2U2YjFmNjNmMjc4MjhkMzM0ZjQ0NTFhZDI0ZGU1NzA0YjI4YTk5YzU1ZGEwNjk5YjdiZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "APAC" }},
-    { east-asia = { href = "https://calendar.google.com/calendar/u/0?cid=MWEyMWYzYWFlMDRjYWJiODQxNDFlOGE1ZjRhYTRjZTA4NWNmMzZlNDA0YjQyOGIzYjZjNzYxMWE4MTllZjczMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "East Asia" }}
+    { pacific = { href = "https://calendar.google.com/calendar/u/0?cid=N2EzN2YxZmYzMzdiODBmOWRiOWFhOGVhNWQ2ZDBiYWY5ODE4MDM0YmIyMDhiNDAyNWUzNDFjNGE3NTMyMTE5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "Pacific" }},
+    { china = { href = "https://calendar.google.com/calendar/u/0?cid=ODFhYjAxZTQ1ZmNiNGY5MjViNzZmOTdmYjA0MjA3Mjc3MjUxZjhhM2FhMDUyMGYxMDA3MmUzYzBhMjQyMTdjNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "China" }}, 
+    { international = { href = "https://calendar.google.com/calendar/u/0?cid=ZjJiMjY1MTkwZmNkMDY5NjY5M2FiZjgwODE1OGRkZDQ1MTQwNjY1ZGRkMGM1YjM3YWFhYTA0ZGJjZDYxZWFhOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t", text = "🗺️ All International Matches" }},
+    { github = {href = "https://github.com/miztch/valorant-match-schedule", text = "See All Calendars on GitHub" } }
   ]
 
 [params]
